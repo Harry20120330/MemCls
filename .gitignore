@@ -1,0 +1,45 @@
+# .gitignore for a .NET console project
+# Build results
+bin/
+obj/
+
+# VS / Rider / Editor folders
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+*.nupkg
+# The packages folder can be ignored if you use NuGet restore
+**/packages/*
+
+# Misc
+*.log
+*.tmp
+*.tmp.*
+*.old
+*.bak
+*.orig
+
+# DotNet specific
+project.lock.json
+project.assets.json
+*.cache
+*.vspscc
+*.vssscc
+# Optimized entries for .NET projects
+# Publish output
+publish/
+# Test results and coverage
+TestResults/
+*.trx
+coverage/
+# Local secrets and config overrides
+appsettings.Development.json
+# OS generated files
+.DS_Store
+Thumbs.db
