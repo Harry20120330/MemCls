@@ -30,9 +30,12 @@
     <PublishTrimmed>true</PublishTrimmed>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <!-- 防止裁剪关键运行时成员 -->
+
+  </PropertyGroup>
+  <ItemGroup>
     <TrimmerRootAssembly Include="System.Text.Json" />
     <TrimmerRootAssembly Include="System.Console" />
     <TrimmerRootAssembly Include="System.Diagnostics.Process" />
-  </PropertyGroup>
+  </ItemGroup>
 
 </Project>

@@ -4,6 +4,7 @@ bin/
 obj/
 
 # VS / Rider / Editor folders
+.vs/
 .vscode/
 .idea/
 *.user
@@ -30,3 +31,15 @@ project.assets.json
 *.cache
 *.vspscc
 *.vssscc
+# Optimized entries for .NET projects
+# Publish output
+publish/
+# Test results and coverage
+TestResults/
+*.trx
+coverage/
+# Local secrets and config overrides
+appsettings.Development.json
+# OS generated files
+.DS_Store
+Thumbs.db
