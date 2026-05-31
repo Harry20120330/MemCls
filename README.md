@@ -1,7 +1,7 @@
 # MemCls – Windows Memory Cleaner
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-English | [简体中文](README.zh-CN.md)
+English | [简体中文](README.zh.md)
 ## Overview
 MemCls is a lightweight native C# console utility that frees up memory on Windows systems. It uses a collection of low‑level Win32/NT APIs to:
 - Empty working sets of all user processes.
