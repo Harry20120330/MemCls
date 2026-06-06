@@ -1,7 +1,6 @@
 #pragma warning disable CA1416
 using System;
 using System.Diagnostics;
-using System.IO;
 using System.Runtime.InteropServices;
 
 namespace MemCls
@@ -87,39 +86,9 @@ namespace MemCls
             return sb.ToString();
         }
 
-        // --- Structured Logger ---
-        private static readonly object _logLock = new object();
-
         public static void Log(LogLevel level, string message, Exception? ex = null)
         {
-            // 1. Always write to File Sink (log/ directory relative to base directory)
-            try
-            {
-                string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-                string logDir = Path.Combine(baseDir, "log");
-                if (!Directory.Exists(logDir))
-                {
-                    Directory.CreateDirectory(logDir);
-                }
-
-                string logFilePath = Path.Combine(logDir, $"memcls_{DateTime.Now:yyyyMMdd}.log");
-                string logLine = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}] [{level.ToString().ToUpper()}] {message}";
-                if (ex != null)
-                {
-                    logLine += $"{Environment.NewLine}{ex}";
-                }
-
-                lock (_logLock)
-                {
-                    File.AppendAllText(logFilePath, logLine + Environment.NewLine);
-                }
-            }
-            catch
-            {
-                // Mute errors writing logs to disk to prevent crash
-            }
-
-            // 2. Output to Console ONLY if level is Error
+            // Output to Console only for errors.
             if (level == LogLevel.Error)
             {
                 string prefix = Rgb(Red.r, Red.g, Red.b, "[-] ");
